@@ -1,223 +1,223 @@
 @import "./media-queries.scss";
 
 .headerstyle {
-    text-align: center;
-    height: 120px;
-    padding-inline: 50px;
-    line-height: 1;
-    background-color: #fff;
+  text-align: center;
+  height: 120px;
+  padding-inline: 50px;
+  line-height: 1;
+  background-color: #fff;
+  @include xs {
+    height: 60px;
+  }
+  .pagetitle {
+    font-family: "Georgia";
+    color: #2874a6;
+    font-size: 35px;
+    line-height: 1.8;
+    font-weight: bold;
     @include xs {
-        height: 60px;
+      font-size: 20px;
+      line-height: 1.5;
     }
-    .pagetitle {
-        font-family: "Georgia";
-        color: #2874a6;
-        font-size: 35px;
-        line-height: 1.8;
-        font-weight: bold;
-        @include xs {
-            font-size: 20px;
-            line-height: 1.5;
-        }
-    }
+  }
 
-    .pagesubtitle {
-        color: #2e86c1;
-        font-size: 30px;
-        line-height: 1.2;
-        font-weight: bold;
-        @include xs {
-            font-size: 20px;
-        }
+  .pagesubtitle {
+    color: #2e86c1;
+    font-size: 30px;
+    line-height: 1.2;
+    font-weight: bold;
+    @include xs {
+      font-size: 20px;
     }
+  }
 }
 
 .contentstyle {
-    background-color: #fff;
-    padding: 15px 10px;
-    .ant-upload-wrapper.ant-upload-picture-card-wrapper {
-        text-align: center;
-    }
-    .ant-upload.ant-upload-select {
-        background-image: url("../images/user_profile.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        color: transparent;
-    }
+  background-color: #fff;
+  padding: 15px 10px;
+  .ant-upload-wrapper.ant-upload-picture-card-wrapper {
+    text-align: center;
+  }
+  .ant-upload.ant-upload-select {
+    background-image: url("../images/user_profile.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: transparent;
+  }
 
-    .ant-upload-list-item-container {
-        + {
-            .ant-upload {
-                display: none;
-            }
-        }
-    }
-    :where(.css-dev-only-do-not-override-htwhyh).ant-upload-wrapper {
-        .ant-upload-list.ant-upload-list-picture-card {
-            .ant-upload-list-item-error {
-                border-color: #d9d9d9;
-            }
-        }
-    }
-    .ant-tooltip {
+  .ant-upload-list-item-container {
+    + {
+      .ant-upload {
         display: none;
+      }
+    }
+  }
+  :where(.css-dev-only-do-not-override-htwhyh).ant-upload-wrapper {
+    .ant-upload-list.ant-upload-list-picture-card {
+      .ant-upload-list-item-error {
+        border-color: #d9d9d9;
+      }
+    }
+  }
+  .ant-tooltip {
+    display: none;
+  }
+
+  .input-content-space {
+    padding: 10px;
+  }
+
+  .img-poster {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 10px auto;
+    min-height: -webkit-fit-content;
+    min-height: -moz-fit-content;
+    min-height: fit-content;
+    width: 100%;
+    background: hsla(0, 0%, 93%, 0.46);
+    border-radius: 15px;
+    padding: 15px;
+
+    div {
+      display: inherit;
     }
 
-    .input-content-space {
-        padding: 10px;
+    .mainposter {
+      height: 100%;
+      object-fit: contain;
+      position: relative;
+      width: 100%;
+      z-index: 2;
     }
 
-    .img-poster {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        margin: 10px auto;
-        min-height: -webkit-fit-content;
-        min-height: -moz-fit-content;
-        min-height: fit-content;
+    .personimage {
+      position: absolute;
+      width: 31.5%;
+      z-index: 1;
+      top: 47%;
+      bottom: 0;
+      right: 10.5%;
+      height: 22%;
+      object-fit: cover;
+    }
+
+    .personname {
+      align-items: center;
+      display: flex;
+      font-size: 20px;
+      font-weight: 700;
+      justify-content: center;
+      overflow: hidden;
+      position: absolute;
+      text-align: center;
+      z-index: 3;
+      top: 31%;
+      bottom: 0;
+      right: 5%;
+      width: 37%;
+      //   color: #fff;
+      @include xs {
+        font-size: 10px;
+        top: 29.8%;
+        right: 6%;
+      }
+      @include md {
+        font-size: 12px;
+        top: 29%;
+      }
+      @include lg {
+        font-size: 12px;
+        top: 30%;
+        right: 6%;
+      }
+    }
+  }
+
+  .photosection {
+    background: #003825;
+    color: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    .infotext {
+      text-align: center;
+    }
+  }
+
+  .namesection {
+    background: #003825;
+    color: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    .ant-input {
+      height: 30px;
+      font-size: 15px !important;
+    }
+  }
+
+  .buttonsection {
+    margin-top: 30px;
+    text-align: center;
+    @include xs {
+      margin-top: 15px;
+    }
+    @include sm {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .ant-btn {
+      min-height: 55px;
+      width: 255px;
+      font-size: 25px !important;
+      background: #2471a3;
+      &:not(:disabled):hover {
+        background-color: #2980b9;
+      }
+      &:disabled {
+        background-color: #d6dbdf;
+      }
+      @include xs {
         width: 100%;
-        background: hsla(0, 0%, 93%, 0.46);
-        border-radius: 15px;
-        padding: 15px;
-
-        div {
-            display: inherit;
-        }
-
-        .mainposter {
-            height: 100%;
-            object-fit: contain;
-            position: relative;
-            width: 100%;
-            z-index: 2;
-        }
-
-        .personimage {
-            position: absolute;
-            width: 31.5%;
-            z-index: 1;
-            top: 47%;
-            bottom: 0;
-            right: 10.5%;
-            height: 22%;
-            object-fit: cover;
-        }
-
-        .personname {
-            align-items: center;
-            display: flex;
-            font-size: 22px;
-            font-weight: 700;
-            justify-content: center;
-            overflow: hidden;
-            position: absolute;
-            text-align: center;
-            z-index: 3;
-            top: 42%;
-            bottom: 0;
-            right: 8%;
-            width: 37%;
-            color: #fff;
-            @include xs {
-                font-size: 10px;
-                top: 39.6%;
-                right: 9%;
-            }
-            @include md {
-                font-size: 11px;
-                top: 40%;
-                right: 9%;
-            }
-            @include lg {
-                font-size: 12px;
-                top: 40%;
-                right: 9%;
-            }
-        }
+      }
     }
-
-    .photosection {
-        background: #2471a3;
-        color: #fff;
-        border-radius: 15px;
-        padding: 15px;
-        .infotext {
-            text-align: center;
-        }
-    }
-
-    .namesection {
-        background: #2471a3;
-        color: #fff;
-        border-radius: 15px;
-        padding: 15px;
-        .ant-input {
-            height: 30px;
-            font-size: 15px !important;
-        }
-    }
-
-    .buttonsection {
-        margin-top: 30px;
-        text-align: center;
-        @include xs {
-            margin-top: 15px;
-        }
-        @include sm {
-            text-align: center;
-            margin-top: 15px;
-        }
-        .ant-btn {
-            min-height: 55px;
-            width: 255px;
-            font-size: 25px !important;
-            background: #2471a3;
-            &:not(:disabled):hover {
-                background-color: #2980b9;
-            }
-            &:disabled {
-                background-color: #d6dbdf;
-            }
-            @include xs {
-                width: 100%;
-            }
-        }
-    }
+  }
 }
 
 .footerstyle {
-    text-align: center;
-    background: #fff;
-    height: 120px;
-    border-top: 1px solid #d6dbdf;
+  text-align: center;
+  background: #15222b;
+  border-top: 1px solid #d6dbdf;
 
-    .pagefootertitle {
-        font-size: 35px;
-        font-weight: bolder;
-        -webkit-text-fill-color: transparent;
-        background: linear-gradient(90deg, #15222b 0, #444444);
-        -webkit-background-clip: text;
-        font-family: "Cooper Black";
-        margin-bottom: 15px;
-        @include xs {
-            font-size: 15px;
-        }
+  .pagefootertitle {
+    .logo {
+      height: 50px;
+      width: 180px;
+      margin-bottom: 15px;
     }
+  }
 
-    .pagefootersubtitle {
-        -webkit-text-fill-color: transparent;
-        background: linear-gradient(90deg, #15222b 0, #444444);
-        -webkit-background-clip: text;
-        font-family: "Futura";
-        font-size: 20px;
-        margin-bottom: 5px;
-        @include xs {
-            font-size: 14px;
-        }
+  .pagefootersubtitle {
+    color: #fff;
+    -webkit-background-clip: text;
+    font-family: "Futura";
+    font-size: 20px;
+    margin-bottom: 15px;
+
+    @include xs {
+      font-size: 14px;
     }
+  }
+  .copyright {
+    color: #fff;
+
+    .text {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .mb-10 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
