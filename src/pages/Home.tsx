@@ -8,6 +8,9 @@ import html2canvas from "html2canvas";
 import saveAs from "file-saver";
 import "../styles/index.scss";
 
+const FOOTER_ADDRESS =
+  "B 712-713, IT Park, Opp. Shell Petrol Pump, Mota Varachha Main Road, Uttran, Surat - 394105, Gujarat, India";
+
 const Home: React.FC = () => {
   const { Header, Footer, Content } = Layout;
 
@@ -17,6 +20,11 @@ const Home: React.FC = () => {
   const [mobileNumber, setMobileNumber] = useState<string>();
   const [schoolName, setSchoolName] = useState<string>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const mapUrl = process.env.REACT_APP_GOOGLE_MAPS_LOCATION;
+  const email = process.env.REACT_APP_EMAIL;
+  const phone1 = process.env.REACT_APP_PHONE1;
+  const phone2 = process.env.REACT_APP_PHONE2;
 
   const onPreview = async (file: UploadFile) => {
     try {
@@ -93,23 +101,6 @@ const Home: React.FC = () => {
       console.error("Error downloading image:", error);
       setIsLoading(false);
     }
-  };
-
-  const handleLocation = () => {
-    window.open(process.env.REACT_APP_GOOGLE_MAPS_LOCATION, "_blank");
-  };
-
-  const openCellNumbers = () => {
-    var mobileNumber = prompt(
-      `Select a mobile number to call:\n\n1. ${process.env.REACT_APP_PHONE1}\n2. ${process.env.REACT_APP_PHONE2}`,
-    );
-    if (mobileNumber) {
-      window.location.href = "tel:" + mobileNumber;
-    }
-  };
-
-  const handleEmail = () => {
-    window.location.href = `mailto:${process.env.REACT_APP_EMAIL}`;
   };
 
   return (
@@ -312,45 +303,67 @@ const Home: React.FC = () => {
           </Row>
         </Content>
         <Footer className="footerstyle">
-          <Row justify="center" align="bottom">
+          <Row gutter={[0, 6]}>
+            <Col xs={24} sm={24} md={24} lg={8} xl={6} className="text-left">
+              <img
+                src="images/bigelement-logo.svg"
+                alt="poster"
+                className="logo"
+              />
+            </Col>
+            <Col xs={24} sm={24} md={24} lg={16} xl={18}>
+              <Row gutter={[0, 4]}>
+                <Col xs={24}>
+                  <Row gutter={[12, 8]}>
+                    <Col xs={24} sm={24}>
+                      <div className="text-left text-white">
+                        <strong>Address:</strong>
+                        <a
+                          href={mapUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="footer-address"
+                          aria-label="View our office location on Google Maps"
+                        >
+                          {FOOTER_ADDRESS}
+                        </a>
+                      </div>
+                    </Col>
+                    <Col>
+                      <div className="text-left text-white">
+                        <strong>Phone:</strong>
+                        <span>
+                          {phone1 && (
+                            <a href={`tel:${phone1}`} className="footer-phone">
+                              {phone1}
+                            </a>
+                          )}
+                          {phone1 && phone2 && " / "}
+                          {phone2 && (
+                            <a href={`tel:${phone2}`} className="footer-phone">
+                              {phone2}
+                            </a>
+                          )}
+                        </span>
+                      </div>
+                    </Col>
+                    <Col>
+                      <div className="text-left text-white">
+                        <strong>Email:</strong>
+                        <a href={`mailto:${email}`} className="footer-email">
+                          {email}
+                        </a>
+                      </div>
+                    </Col>
+                  </Row>
+                </Col>
+              </Row>
+            </Col>
             <Col xs={24}>
-              <div className="pagefootertitle">
-                <div>
-                  <img
-                    src="images/bigelement-logo.svg"
-                    alt="poster"
-                    className="logo"
-                  />
-                </div>
-                <div>
-                  <div className="footerdetails">
-                    <div className="text-left">
-                      <strong>Address:</strong>
-                      <span className="footer-address" onClick={handleLocation}>
-                        B 712-713, 7th Floor, IT Park, Opp. Gajera International{" "}
-                        School, Uttran, Surat - 394105, Gujarat, India
-                      </span>
-                    </div>
-                    <div className="text-left">
-                      <strong>Phone:</strong>
-                      <span className="footer-phone" onClick={openCellNumbers}>
-                        {process.env.REACT_APP_PHONE1} /{" "}
-                        {process.env.REACT_APP_PHONE2}
-                      </span>
-                    </div>
-                    <div>
-                      <strong>Email:</strong>
-                      <span className="footer-email" onClick={handleEmail}>
-                        {process.env.REACT_APP_EMAIL}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="copyright">
-                    <p className="text">
-                      Copyright &copy; 2026&nbsp;All Rights Reserved.
-                    </p>
-                  </div>
-                </div>
+              <div className="copyright">
+                <p className="text">
+                  Copyright &copy; 2026&nbsp;All Rights Reserved.
+                </p>
               </div>
             </Col>
           </Row>
