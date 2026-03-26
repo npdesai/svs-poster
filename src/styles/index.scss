@@ -95,12 +95,12 @@
 
     .personimage {
       position: absolute;
-      width: 31.5%;
+      width: 28.5%;
       z-index: 1;
-      top: 47%;
+      top: 45.5%;
       bottom: 0;
-      right: 10.5%;
-      height: 22%;
+      right: 8.5%;
+      height: 16%;
       object-fit: cover;
     }
 
@@ -114,7 +114,7 @@
       position: absolute;
       text-align: center;
       z-index: 3;
-      top: 31%;
+      top: 30.5%;
       bottom: 0;
       right: 5%;
       width: 37%;
@@ -172,7 +172,7 @@
       font-size: 25px !important;
       background: #003825;
       &:not(:disabled):hover {
-        background-color: #2980b9;
+        background-color: #003825;
       }
       &:disabled {
         background-color: #d6dbdf;
