@@ -10,7 +10,7 @@ import "../styles/index.scss";
 
 const Home: React.FC = () => {
   const { Header, Footer, Content } = Layout;
-  
+
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [imageUrl, setImageUrl] = useState<string>();
   const [personName, setPersonName] = useState<string>();
@@ -93,6 +93,23 @@ const Home: React.FC = () => {
       console.error("Error downloading image:", error);
       setIsLoading(false);
     }
+  };
+
+  const handleLocation = () => {
+    window.open(process.env.REACT_APP_GOOGLE_MAPS_LOCATION, "_blank");
+  };
+
+  const openCellNumbers = () => {
+    var mobileNumber = prompt(
+      `Select a mobile number to call:\n\n1. ${process.env.REACT_APP_PHONE1}\n2. ${process.env.REACT_APP_PHONE2}`,
+    );
+    if (mobileNumber) {
+      window.location.href = "tel:" + mobileNumber;
+    }
+  };
+
+  const handleEmail = () => {
+    window.location.href = `mailto:${process.env.REACT_APP_EMAIL}`;
   };
 
   return (
@@ -298,17 +315,42 @@ const Home: React.FC = () => {
           <Row justify="center" align="bottom">
             <Col xs={24}>
               <div className="pagefootertitle">
-                <img
-                  src="images/bigelement-logo.svg"
-                  alt="poster"
-                  className="logo"
-                />
-              </div>
-              <div className="pagefootersubtitle">
-                +91 9601339306 / +91 9638523654
-              </div>
-              <div className="copyright">
-                <p className="text">Copyright &copy; 2026&nbsp;All Rights Reserved.</p>
+                <div>
+                  <img
+                    src="images/bigelement-logo.svg"
+                    alt="poster"
+                    className="logo"
+                  />
+                </div>
+                <div>
+                  <div className="footerdetails">
+                    <div className="text-left">
+                      <strong>Address:</strong>
+                      <span className="footer-address" onClick={handleLocation}>
+                        B 712-713, 7th Floor, IT Park, Opp. Gajera International{" "}
+                        School, Uttran, Surat - 394105, Gujarat, India
+                      </span>
+                    </div>
+                    <div className="text-left">
+                      <strong>Phone:</strong>
+                      <span className="footer-phone" onClick={openCellNumbers}>
+                        {process.env.REACT_APP_PHONE1} /{" "}
+                        {process.env.REACT_APP_PHONE2}
+                      </span>
+                    </div>
+                    <div>
+                      <strong>Email:</strong>
+                      <span className="footer-email" onClick={handleEmail}>
+                        {process.env.REACT_APP_EMAIL}
+                      </span>
+                    </div>
+                  </div>
+                  <div className="copyright">
+                    <p className="text">
+                      Copyright &copy; 2026&nbsp;All Rights Reserved.
+                    </p>
+                  </div>
+                </div>
               </div>
             </Col>
           </Row>
