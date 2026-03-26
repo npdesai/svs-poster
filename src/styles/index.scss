@@ -11,7 +11,7 @@
   }
   .pagetitle {
     font-family: "Georgia";
-    color: #2874a6;
+    color: #003825;
     font-size: 35px;
     line-height: 1.8;
     font-weight: bold;
@@ -22,7 +22,7 @@
   }
 
   .pagesubtitle {
-    color: #2e86c1;
+    color: #003825;
     font-size: 30px;
     line-height: 1.2;
     font-weight: bold;
@@ -118,7 +118,6 @@
       bottom: 0;
       right: 5%;
       width: 37%;
-      //   color: #fff;
       @include xs {
         font-size: 10px;
         top: 29.8%;
@@ -171,7 +170,7 @@
       min-height: 55px;
       width: 255px;
       font-size: 25px !important;
-      background: #2471a3;
+      background: #003825;
       &:not(:disabled):hover {
         background-color: #2980b9;
       }
@@ -193,7 +192,7 @@
   .pagefootertitle {
     .logo {
       height: 50px;
-      width: 180px;
+      width: 250px;
       margin-bottom: 15px;
     }
   }
@@ -202,7 +201,7 @@
     color: #fff;
     -webkit-background-clip: text;
     font-family: "Futura";
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 15px;
 
     @include xs {

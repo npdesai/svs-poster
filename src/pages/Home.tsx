@@ -10,8 +10,7 @@ import "../styles/index.scss";
 
 const Home: React.FC = () => {
   const { Header, Footer, Content } = Layout;
-  const currentYear = new Date().getFullYear();
-
+  
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [imageUrl, setImageUrl] = useState<string>();
   const [personName, setPersonName] = useState<string>();
@@ -90,32 +89,6 @@ const Home: React.FC = () => {
       const filename = personName?.replace(/\s+/g, "_") || "poster";
       saveAs(data, `${filename}.png`);
       setIsLoading(false);
-
-      // TODO: Save in database when needed
-      // fetch(
-      //     'https://talbot-training-api.atcemr.com/api/Quicksight/AddIntakeData',
-      //     {
-      //         mode: 'cors',
-      //         method: 'POST',
-      //         headers: {
-      //             'Content-Type': 'application/json'
-      //         },
-      //         body: JSON.stringify({
-      //             name: personName,
-      //             mobileNo: mobileNumber,
-      //             schoolName: schoolName,
-      //             companyName: 'Shreekar Vidhya Sankul'
-      //         })
-      //     }
-      // )
-      //     .then((response) => {
-      //         if (!response.ok) {
-      //             throw new Error('Failed to save')
-      //         }
-      //     })
-      //     .catch((error) => {
-      //         console.error('Error saving to database:', error)
-      //     })
     } catch (error) {
       console.error("Error downloading image:", error);
       setIsLoading(false);
@@ -254,7 +227,7 @@ const Home: React.FC = () => {
                             <h2>આપનું નામ અહીં લખો.</h2>
                             <Input
                               placeholder="Name / નામ"
-                              maxLength={14}
+                              maxLength={15}
                               allowClear
                               onChange={(e) => setPersonName(e.target.value)}
                             />
@@ -335,7 +308,7 @@ const Home: React.FC = () => {
                 +91 9601339306 / +91 9638523654
               </div>
               <div className="copyright">
-                <p className="text">Copyright &copy; {currentYear}&nbsp;All Rights Reserved.</p>
+                <p className="text">Copyright &copy; 2026&nbsp;All Rights Reserved.</p>
               </div>
             </Col>
           </Row>
